@@ -28,15 +28,13 @@ app.use(allowCrossDomain);
 app.use(express.bodyParser());
 
 
-app.get('/calc/:operation', function(req, res){  
-	console.log('This process is pid ' + process.pid);
+app.get('/calc/:operation', function(req, res){	
 	var requestObj = getRequestParams(req);	
 	if(plugins.hasOwnProperty(requestObj.operation)) {
 		var plugin = require(plugins[requestObj.operation]);
 		var result = plugin(requestObj.opr1,requestObj.opr2);		
 		if(isNaN(result)){
-			res.send(406);
-			process.exit(1);
+			res.send(406);			
 		}else{
 			res.send({operation : requestObj.operation, result : result });
 		}		
