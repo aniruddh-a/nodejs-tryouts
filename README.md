@@ -12,3 +12,6 @@ Usage
 ======
 Dependencies : Node.js, Express
 
+Type following in shell / command prompt.
+<code>node calculator-server.js</code>
+
